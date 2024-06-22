@@ -1,0 +1,27 @@
+// Pseudocode for Brute Force approach
+// Count number of nice subarrays ending at each index
+// Time Complexity: O(n^2)
+
+Function countNiceSubArrays(nums, i, k):
+    count = 0
+    res = 0
+    While i >= 0 AND count <= k:
+        If nums[i] is odd:
+            count += 1
+        End If
+        If count == k:
+            res += 1
+        End If
+        i -= 1
+    End While
+    Return res
+End Function
+
+Function numberOfSubarrays(nums, k):
+    n = length of nums
+    res = 0
+    For i from 0 to n-1:
+        res += countNiceSubArrays(nums, i, k)
+    End For
+    Return res
+End Function

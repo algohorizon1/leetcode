@@ -1,0 +1,25 @@
+// Pseudocode of Dynamic Size Sliding Window Approach
+// Time Complexity: O(n)
+// Space Complexity: O(1)
+
+Function atMost(nums, maxOdds):
+    result = 0
+    currentOddCount = 0
+    start = 0
+
+    For end from 0 to length of nums - 1:
+        currentOddCount += nums[end] % 2
+
+        While currentOddCount > maxOdds:
+            currentOddCount -= nums[start] % 2
+            start += 1
+
+        result += (end - start + 1)
+    End For
+
+    Return result
+End Function
+
+Function numberOfSubarrays(nums, k):
+    Return atMost(nums, k) - atMost(nums, k-1)
+End Function

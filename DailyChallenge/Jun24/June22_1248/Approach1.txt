@@ -1,0 +1,24 @@
+// Pseudocode for Brute Force approach
+// For each subarray check whether the subaary is nice or not
+// Time Complexity: O(n^3)
+
+Function isNice(nums, i, j, k):
+    count = 0
+    For l from i to j:
+        count += nums[l] % 2
+    End For
+    Return count == k
+End Function
+
+Function numberOfSubarrays(nums, k):
+    n = length of nums
+    res = 0
+    For i from 0 to n-1:
+        For j from i to n-1:
+            If isNice(nums, i, j, k):
+                res += 1
+            End If
+        End For
+    End For
+    Return res
+End Function

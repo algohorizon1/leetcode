@@ -1,0 +1,24 @@
+// Pseudocode of HashMap based approach
+// Time Complexity: O(n)
+// Space Complexity: O(n)
+
+Function numberOfSubarrays(nums, k):
+        result = 0
+        oddCount = 0
+        hashmap = new HashMap()
+        hashmap.put(0, 1)
+
+        For each number in nums:
+        If number is odd:
+        oddCount += 1
+        End If
+
+        If hashmap contains key (oddCount - k):
+        result += hashmap.get(oddCount - k)
+        End If
+
+        hashmap.put(oddCount, hashmap.getOrDefault(oddCount, 0) + 1)
+        End For
+
+        Return result
+End Function
